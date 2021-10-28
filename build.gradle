@@ -25,4 +25,5 @@ ext{
     navigation_component_version='2.3.5'
     constraint_layout='2.1.1'
     material_design ='1.4.0'
+    sdp_library='1.0.6'
 }

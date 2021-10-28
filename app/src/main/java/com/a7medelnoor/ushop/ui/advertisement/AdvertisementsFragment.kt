@@ -1,4 +1,4 @@
-package com.a7medelnoor.ushop.ui
+package com.a7medelnoor.ushop.ui.advertisement
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

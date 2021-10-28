@@ -28,4 +28,24 @@
             android:id="@+id/action_loginFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/storeFragment"
+        android:name="com.a7medelnoor.ushop.ui.store.StoreFragment"
+        android:label="fragment_store"
+        tools:layout="@layout/fragment_store" />
+    <fragment
+        android:id="@+id/advertisementsFragment"
+        android:name="com.a7medelnoor.ushop.ui.advertisement.AdvertisementsFragment"
+        android:label="fragment_advertisment"
+        tools:layout="@layout/fragment_advertisment" />
+    <fragment
+        android:id="@+id/notificationsFragment"
+        android:name="com.a7medelnoor.ushop.ui.notifications.NotificationsFragment"
+        android:label="fragment_notifications"
+        tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.a7medelnoor.ushop.ui.profile.ProfileFragment"
+        android:label="fragment_profiel"
+        tools:layout="@layout/fragment_profiel" />
 </navigation>

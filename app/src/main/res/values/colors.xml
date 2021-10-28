@@ -16,5 +16,7 @@
     <color name="custom_icon_color_primary">#494949</color>
     <color name="custom_icon_color_secondary">#ffffff</color>
     <color name="custom_status_bar_background_color">#FF000000</color>
+    <color name="custom_login_background">#f5f5f5</color>
+
 
 </resources>

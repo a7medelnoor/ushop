@@ -3,4 +3,8 @@
     <string name="hint_email_address">Email Address</string>
     <string name="Password">Password</string>
     <string name="login_button_text">LOGIN</string>
+    <string name="welcome_to_marketplace">Welcome to MarketPlace</string>
+    <string name="welcome_to_advertisements">Welcome to Advertisements</string>
+    <string name="welcome_to_notifications">Welcome to Notifications</string>
+    <string name="welcome_to_user_profile">Welcome to User Profile</string>
 </resources>

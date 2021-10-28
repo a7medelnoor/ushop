@@ -16,3 +16,13 @@ buildscript {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+ext{
+    retrofit_version = '2.9.0'
+    kotlinCoroutines ='1.3.9'
+    app_lifeCycle='2.2.0'
+    glide_image_lib_vesion= '4.12.0'
+    gson_parsing_lib ='2.8.6'
+    navigation_component_version='2.3.5'
+    constraint_layout='2.1.1'
+    material_design ='1.4.0'
+}

@@ -7,4 +7,9 @@
     <string name="welcome_to_advertisements">Welcome to Advertisements</string>
     <string name="welcome_to_notifications">Welcome to Notifications</string>
     <string name="welcome_to_user_profile">Welcome to User Profile</string>
+    <string name="home_amp_g"><![CDATA[Home & G]]></string>
+    <string name="closing">Closing</string>
+    <string name="rentals">Rentals</string>
+    <string name="vehicle">Vehicle</string>
+    <string name="all_categories">All Categories</string>
 </resources>

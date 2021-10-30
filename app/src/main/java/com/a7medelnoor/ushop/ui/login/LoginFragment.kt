@@ -2,7 +2,6 @@ package com.a7medelnoor.ushop.ui.login
 
 import android.os.Bundle
 import android.text.TextUtils
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,7 +14,7 @@ import com.a7medelnoor.ushop.data.model.response.LoginResponse
 import com.a7medelnoor.ushop.data.network.ApiClient
 import com.a7medelnoor.ushop.databinding.FragmentLoginBinding
 import com.a7medelnoor.ushop.util.AppConstants.Companion.SERVER_KEY
-import com.a7medelnoor.ushop.util.AppPreferences
+import com.a7medelnoor.ushop.util.AppSharedPreferences
 import com.a7medelnoor.ushop.util.LoginSessionManager
 import com.google.android.material.textfield.TextInputEditText
 import retrofit2.Call
@@ -71,14 +70,14 @@ class LoginFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
-        if (AppPreferences.isLogin){
+        if (AppSharedPreferences.isLogin){
             findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
         }
         binding.loginButton.setOnClickListener {
-            if (AppPreferences.isLogin) {
-                AppPreferences.isLogin = false
-                AppPreferences.username = ""
-                AppPreferences.password = ""
+            if (AppSharedPreferences.isLogin) {
+                AppSharedPreferences.isLogin = false
+                AppSharedPreferences.username = ""
+                AppSharedPreferences.password = ""
             } else {
                 val username =
                     binding.emailAddressTextFieldInput.text.toString()
@@ -92,9 +91,9 @@ class LoginFragment : Fragment() {
                     binding.passwordEditTextFieldInput.requestFocus()
                 } else {
                     userLogin()
-                    AppPreferences.isLogin = true
-                    AppPreferences.username = username
-                    AppPreferences.password = password
+                    AppSharedPreferences.isLogin = true
+                    AppSharedPreferences.username = username
+                    AppSharedPreferences.password = password
                     findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
                 }
             }

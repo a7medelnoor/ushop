@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 
 data class AllCategoriesMainItem(
     @SerializedName("image")
-    private val image: String,
+    private val image: Int,
     @SerializedName("name")
     private val name: String
 )

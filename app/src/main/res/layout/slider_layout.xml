@@ -4,7 +4,7 @@
     <data>
 <variable
     name="ImageSlider"
-    type="com.a7medelnoor.ushop.data.model.ImageSlider" />
+    type="com.a7medelnoor.ushop.data.model.dto.ImageSlider" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

@@ -6,5 +6,6 @@ class AppConstants {
         const val LOGIN_URL ="auth/login"
         const val SERVER_KEY= "1539874186"
         const val USER_TOKEN ="access_token"
+        const val CATEGORIES_URL ="misc/get_categories"
     }
 }

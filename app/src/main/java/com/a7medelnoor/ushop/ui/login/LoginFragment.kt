@@ -15,6 +15,7 @@ import com.a7medelnoor.ushop.data.model.response.LoginResponse
 import com.a7medelnoor.ushop.data.network.ApiClient
 import com.a7medelnoor.ushop.databinding.FragmentLoginBinding
 import com.a7medelnoor.ushop.util.AppConstants.Companion.SERVER_KEY
+import com.a7medelnoor.ushop.util.AppPreferences
 import com.a7medelnoor.ushop.util.LoginSessionManager
 import com.google.android.material.textfield.TextInputEditText
 import retrofit2.Call
@@ -24,7 +25,7 @@ class LoginFragment : Fragment() {
     private lateinit var apiClient: ApiClient
     lateinit var loginSession: LoginSessionManager
     private lateinit var viewModel: LoginViewModel
-    private  var _binding: FragmentLoginBinding? = null
+    private var _binding: FragmentLoginBinding? = null
     val binding get() = _binding!!
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -69,27 +70,35 @@ class LoginFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        _binding = FragmentLoginBinding.inflate(inflater,container,false)
+        _binding = FragmentLoginBinding.inflate(inflater, container, false)
+        if (AppPreferences.isLogin){
+            findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+        }
         binding.loginButton.setOnClickListener {
-            val username =
-                binding.emailAddressTextFieldInput.text.toString()
-            val password =
-                binding.passwordEditTextFieldInput.text.toString()
-            if (TextUtils.isEmpty(username)){
-                binding.emailAddressTextFieldInput.setError("Please enter email")
-                binding.emailAddressTextFieldInput.requestFocus()
-            }else if (TextUtils.isEmpty(password)){
-                binding.passwordEditTextFieldInput.setError("Please enter password")
-                binding.passwordEditTextFieldInput.requestFocus()
-            }else{
-                if (loginSession.fetchAuthToken() != null){
-                    findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
-                }else {
-                   userLogin()
+            if (AppPreferences.isLogin) {
+                AppPreferences.isLogin = false
+                AppPreferences.username = ""
+                AppPreferences.password = ""
+            } else {
+                val username =
+                    binding.emailAddressTextFieldInput.text.toString()
+                val password =
+                    binding.passwordEditTextFieldInput.text.toString()
+                if (TextUtils.isEmpty(username)) {
+                    binding.emailAddressTextFieldInput.error = "Please enter email"
+                    binding.emailAddressTextFieldInput.requestFocus()
+                } else if (TextUtils.isEmpty(password)) {
+                    binding.passwordEditTextFieldInput.error = "Please enter password"
+                    binding.passwordEditTextFieldInput.requestFocus()
+                } else {
+                    userLogin()
+                    AppPreferences.isLogin = true
+                    AppPreferences.username = username
+                    AppPreferences.password = password
                     findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
                 }
-
             }
+
         }
         return binding.root
     }

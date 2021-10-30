@@ -3,21 +3,22 @@
     <item
         android:id="@+id/homeFragment"
         android:icon="@drawable/ic_home"
-        android:title="FHome" />
+        android:title="@string/home_buttom_navigation_title" />
     <item
+
         android:id="@+id/storeFragment"
         android:icon="@drawable/ic_store"
-        android:title="Market Place" />
+        android:title="@string/market_buttom_navigation_title" />
     <item
         android:id="@+id/advertisementsFragment"
         android:icon="@drawable/ic_add"
-        android:title="Advertisements" />
+        android:title="@string/ads_buttom_navigation_title" />
     <item
         android:id="@+id/notificationsFragment"
         android:icon="@drawable/ic_notifications"
-        android:title="Notifications" />
+        android:title="@string/notifications_buttton_navigation_menu" />
     <item
         android:id="@+id/profileFragment"
         android:icon="@drawable/ic_profile"
-        android:title="User Profile" />
+        android:title="@string/user_profile_button_navigation_menu" />
 </menu>

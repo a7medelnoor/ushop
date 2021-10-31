@@ -35,7 +35,7 @@ class SubCategoriesAdapter(
         val subCategoriesList = subCategoriesList.get(position)
         holder.subCategoriesTextTitle.text = subCategoriesList.name
         Glide.with(holder.itemView)
-            .load(subCategoriesList.name)
+            .load(subCategoriesList.image)
             .into(holder.subCategoriesImageView)
     }
 

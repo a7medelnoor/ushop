@@ -4,9 +4,9 @@ import com.google.gson.annotations.SerializedName
 
 data class CategoriesResponse (
     @SerializedName("code")
-    private val code: Int,
+     val code: Int,
     @SerializedName("status")
-    private val status: String,
+     val status: String,
     @SerializedName("data")
-    private val data: List<CategoriesData>
+     val data: List<CategoriesData>
         )

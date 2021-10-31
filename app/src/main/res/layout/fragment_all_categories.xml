@@ -74,4 +74,5 @@
             tools:ignore="MissingConstraints"
             tools:listitem="@layout/all_categories_main_layout" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

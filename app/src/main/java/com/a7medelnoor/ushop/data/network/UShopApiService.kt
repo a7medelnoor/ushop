@@ -17,15 +17,15 @@ interface UShopApiService {
     @Headers("Content-Type:application/x-www-form-urlencoded")
     @FormUrlEncoded
     fun userLogin(
-        @Field("server_key") server_key: String,
-        @Field("username") username: String,
-        @Field("password") password: String
+        @Field("server_key") server_key: String?,
+        @Field("username") username: String?,
+        @Field("password") password: String?
     ): retrofit2.Call<LoginResponse>
     @POST(CATEGORIES_URL)
     @Headers("Content-Type:application/x-www-form-urlencoded")
     @FormUrlEncoded
     fun getCategories(
-        @Field("server_key") server_key: String,
-        @Field("access_token") access_token: String
+        @Field("server_key") server_key: String?,
+        @Field("access_token") access_token: String?
     ): Call<CategoriesResponse>
 }

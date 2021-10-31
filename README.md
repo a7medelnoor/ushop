@@ -16,4 +16,4 @@ Home Screen
 ![Screenshot](screen-6.jfif)
 
 All Categories 
-![Screenshot](screen-7.jfif)
+![Screenshot](screen-8.jfif)

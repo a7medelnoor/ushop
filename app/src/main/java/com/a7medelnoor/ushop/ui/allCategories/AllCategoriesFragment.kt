@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.a7medelnoor.ushop.R
 import com.a7medelnoor.ushop.adapters.CategoriesAdapter
+import com.a7medelnoor.ushop.adapters.SubCategoriesAdapter
 import com.a7medelnoor.ushop.data.model.response.CategoriesData
 import com.a7medelnoor.ushop.data.model.response.CategoriesResponse
 import com.a7medelnoor.ushop.data.network.ApiClient
@@ -22,7 +23,9 @@ import retrofit2.Response
 class AllCategoriesFragment : Fragment() {
     private val TAG = "AllCategoriesFragment"
     private lateinit var adapter: CategoriesAdapter
+    private lateinit var subAdapter :SubCategoriesAdapter
     var mCategoriesList = ArrayList<CategoriesData>()
+    var subCategoriesList = ArrayList<CategoriesData>()
     private lateinit var mRecyclerView: RecyclerView
     private lateinit var apiClient: ApiClient
     private lateinit var loginSessionManager: LoginSessionManager
@@ -33,8 +36,8 @@ class AllCategoriesFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_all_categories, container, false)
         mRecyclerView = view.findViewById<RecyclerView>(R.id.all_categories_recycler_view)
-
-        adapter = CategoriesAdapter(mCategoriesList)
+        subAdapter = SubCategoriesAdapter(subCategoriesList)
+        adapter = CategoriesAdapter(mCategoriesList,requireContext(),subAdapter )
         mRecyclerView.adapter = adapter
         mRecyclerView.layoutManager =
             LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)

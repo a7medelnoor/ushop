@@ -73,16 +73,6 @@
             app:layout_constraintTop_toBottomOf="@+id/app_bar"
             tools:ignore="MissingConstraints"
             tools:listitem="@layout/all_categories_main_layout" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/sup_all_categories_recycler_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            app:layout_constraintStart_toEndOf="@+id/all_categories_recycler_view"
-            app:layout_constraintTop_toTopOf="@+id/all_categories_recycler_view"
-            tools:ignore="MissingConstraints"
-            tools:listitem="@layout/all_categories_main_layout" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

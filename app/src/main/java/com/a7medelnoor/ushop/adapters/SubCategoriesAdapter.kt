@@ -8,13 +8,15 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.a7medelnoor.ushop.R
 import com.a7medelnoor.ushop.data.model.response.CategoriesData
+import com.a7medelnoor.ushop.data.model.response.SubCategoriesData
 import com.bumptech.glide.Glide
 
 class SubCategoriesAdapter(
-    private val subCategoriesList: List<CategoriesData>,
+    private val subCategoriesList: List<SubCategoriesData>,
     private val context: Context
 ) : RecyclerView.Adapter<SubCategoriesAdapter.SubCategoriesAdapter>() {
     lateinit var subCategoriesAdapter: com.a7medelnoor.ushop.adapters.SubCategoriesAdapter
@@ -43,14 +45,23 @@ class SubCategoriesAdapter(
         Glide.with(holder.itemView)
             .load(subCategoriesList.image)
             .into(holder.subCategoriesImageView)
-        holder.subCategoriesImageView.setOnClickListener {
+        val childLayoutManager : GridLayoutManager= GridLayoutManager(context,2
+        )
+        holder.itemView.setOnClickListener {
             subCategoriesAdapter =
-                com.a7medelnoor.ushop.adapters.SubCategoriesAdapter(listOf(subCategoriesList),context)
+                com.a7medelnoor.ushop.adapters.SubCategoriesAdapter(subCategoriesList.subcategories,context)
             holder.childSubCategoriesRecyclerView.adapter = subCategoriesAdapter
-            val gridLayoutManager : GridLayoutManager = GridLayoutManager(context,3)
-            holder.childSubCategoriesRecyclerView.layoutManager = gridLayoutManager
+            holder.childSubCategoriesRecyclerView.layoutManager = childLayoutManager
             holder.childSubCategoriesRecyclerView.adapter!!.notifyDataSetChanged()
         }
+//        holder.subCategoriesImageView.setOnClickListener {
+//            subCategoriesAdapter =
+//                com.a7medelnoor.ushop.adapters.SubCategoriesAdapter(listOf(subCategoriesList),context)
+//            holder.childSubCategoriesRecyclerView.adapter = subCategoriesAdapter
+//            val gridLayoutManager : GridLayoutManager = GridLayoutManager(context,3)
+//            holder.childSubCategoriesRecyclerView.layoutManager = gridLayoutManager
+//            holder.childSubCategoriesRecyclerView.adapter!!.notifyDataSetChanged()
+//        }
     }
 
     override fun getItemCount(): Int {

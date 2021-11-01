@@ -74,6 +74,9 @@ dependencies {
     implementation "com.squareup.okhttp3:logging-interceptor:$loginIntercepter"
     // slider view
     implementation "com.github.smarteist:autoimageslider:$sliderViewImageVersion"
+    // sections recyclerview
+    implementation "io.github.luizgrp.sectionedrecyclerviewadapter:sectionedrecyclerviewadapter:$sections_recyclerView"
+
 
 
 

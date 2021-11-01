@@ -36,11 +36,15 @@ class AllCategoriesFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_all_categories, container, false)
         mRecyclerView = view.findViewById<RecyclerView>(R.id.all_categories_recycler_view)
-        subAdapter = SubCategoriesAdapter(subCategoriesList,requireContext())
-        adapter = CategoriesAdapter(mCategoriesList,requireContext(),subAdapter )
-        mRecyclerView.adapter = adapter
-        mRecyclerView.layoutManager =
-            LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+        mRecyclerView.apply {
+            layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.VERTICAL,false)
+            adapter = CategoriesAdapter(mCategoriesList,context)
+        }
+//        subAdapter = SubCategoriesAdapter(subCategoriesList,requireContext())
+//        adapter = CategoriesAdapter(mCategoriesList,requireContext(),subAdapter )
+//        mRecyclerView.adapter = adapter
+//        mRecyclerView.layoutManager =
+//            LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         getCategoriesData()
         return view
     }

@@ -19,15 +19,15 @@ class SubCategoriesAdapter(
         val subCategoriesImageView: ImageView
 
         init {
-            subCategoriesImageView = itemView.findViewById(R.id.all_categories_image_view)
-            subCategoriesTextTitle = itemView.findViewById(R.id.all_categories_title)
+            subCategoriesImageView = itemView.findViewById(R.id.sub_all_categories_image_view)
+            subCategoriesTextTitle = itemView.findViewById(R.id.sub_all_categories_title)
         }
     }
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SubCategoriesAdapter {
         val inflateView = LayoutInflater.from(parent.context)
-            .inflate(R.layout.all_categories_main_layout, parent, false)
+            .inflate(R.layout.sub_layout_design, parent, false)
         return SubCategoriesAdapter(inflateView)
     }
 
@@ -35,7 +35,7 @@ class SubCategoriesAdapter(
         val subCategoriesList = subCategoriesList.get(position)
         holder.subCategoriesTextTitle.text = subCategoriesList.name
         Glide.with(holder.itemView)
-            .load(subCategoriesList.name)
+            .load(subCategoriesList.image)
             .into(holder.subCategoriesImageView)
     }
 

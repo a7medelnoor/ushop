@@ -18,10 +18,13 @@ import com.bumptech.glide.Glide
 class CategoriesAdapter(
     private var mCategoriesList: List<CategoriesData>,
     private val context: Context,
-    private var subCategoriesAdapter: SubCategoriesAdapter
+//    private var subCategoriesAdapter: SubCategoriesAdapter
 ) :
     RecyclerView.Adapter<CategoriesAdapterViewHolder>() {
     private val TAG = "CategoriesAdapter"
+    private val viewPool = RecyclerView.RecycledViewPool()
+    private lateinit var subCategoriesAdapter: SubCategoriesAdapter
+    private lateinit var layoutManager: LinearLayoutManager
 
 
     class CategoriesAdapterViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -52,16 +55,28 @@ class CategoriesAdapter(
         Glide.with(holder.itemView)
             .load(lists.image)
             .into(holder.imageViewCategoriesMain)
+        val childLayoutManager = LinearLayoutManager(
+            holder.childRecyclerView.context, LinearLayoutManager.HORIZONTAL, false
+        )
+        childLayoutManager.initialPrefetchItemCount=3
         holder.imageViewCategoriesMain.setOnClickListener {
-            subCategoriesAdapter = SubCategoriesAdapter(mCategoriesList,context)
+            subCategoriesAdapter = SubCategoriesAdapter(lists.subcategories,context)
             holder.childRecyclerView.adapter = subCategoriesAdapter
-            Log.d(TAG, "SUBBBBBBBBBB" + subCategoriesAdapter)
-            val gridLayoutManager : GridLayoutManager = GridLayoutManager(context,3)
-//            val linearLayoutManager: LinearLayoutManager = LinearLayoutManager(context)
-//            linearLayoutManager.orientation = LinearLayoutManager.HORIZONTAL
-            holder.childRecyclerView.layoutManager = gridLayoutManager
+            holder.childRecyclerView.layoutManager = childLayoutManager
             holder.childRecyclerView.adapter!!.notifyDataSetChanged()
+//            adapter = SubCategoriesAdapter(lists.subcategories)
+//            setRecycledViewPool(viewPool)
         }
+//        holder.imageViewCategoriesMain.setOnClickListener {
+//            subCategoriesAdapter = SubCategoriesAdapter(mCategoriesList,context)
+//            holder.childRecyclerView.adapter = subCategoriesAdapter
+//            Log.d(TAG, "SUBBBBBBBBBB" + subCategoriesAdapter)
+//            val gridLayoutManager : GridLayoutManager = GridLayoutManager(context,3)
+////            val linearLayoutManager: LinearLayoutManager = LinearLayoutManager(context)
+////            linearLayoutManager.orientation = LinearLayoutManager.HORIZONTAL
+//            holder.childRecyclerView.layoutManager = gridLayoutManager
+//            holder.childRecyclerView.adapter!!.notifyDataSetChanged()
+//        }
     }
 
     override fun getItemCount(): Int {

@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.a7medelnoor.ushop.R
@@ -52,12 +53,13 @@ class CategoriesAdapter(
             .load(lists.image)
             .into(holder.imageViewCategoriesMain)
         holder.imageViewCategoriesMain.setOnClickListener {
-            subCategoriesAdapter = SubCategoriesAdapter(mCategoriesList)
+            subCategoriesAdapter = SubCategoriesAdapter(mCategoriesList,context)
             holder.childRecyclerView.adapter = subCategoriesAdapter
             Log.d(TAG, "SUBBBBBBBBBB" + subCategoriesAdapter)
-            val linearLayoutManager: LinearLayoutManager = LinearLayoutManager(context)
-            linearLayoutManager.orientation = LinearLayoutManager.HORIZONTAL
-            holder.childRecyclerView.layoutManager = linearLayoutManager
+            val gridLayoutManager : GridLayoutManager = GridLayoutManager(context,3)
+//            val linearLayoutManager: LinearLayoutManager = LinearLayoutManager(context)
+//            linearLayoutManager.orientation = LinearLayoutManager.HORIZONTAL
+            holder.childRecyclerView.layoutManager = gridLayoutManager
             holder.childRecyclerView.adapter!!.notifyDataSetChanged()
         }
     }

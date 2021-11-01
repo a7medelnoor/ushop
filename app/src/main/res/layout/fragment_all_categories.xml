@@ -49,7 +49,9 @@
                     android:layout_marginLeft="15dip"
                     android:layout_marginTop="5dip"
                     android:layout_marginRight="15dip"
-                    app:cardCornerRadius="6dp"
+                    app:cardElevation="@dimen/_1sdp"
+                    app:cardPreventCornerOverlap="false"
+                    app:cardUseCompatPadding="false"
                     app:layout_constraintEnd_toEndOf="@+id/image_logo_home"
                     app:layout_constraintStart_toStartOf="@+id/image_logo_home"
                     app:layout_constraintTop_toBottomOf="@+id/image_logo_home">

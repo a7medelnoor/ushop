@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.a7medelnoor.ushop.R
@@ -52,13 +51,15 @@ class CategoriesAdapter(
         Glide.with(holder.itemView)
             .load(lists.image)
             .into(holder.imageViewCategoriesMain)
-        subCategoriesAdapter = SubCategoriesAdapter(mCategoriesList)
-        holder.childRecyclerView.adapter = subCategoriesAdapter
-        Log.d(TAG,"SUBBBBBBBBBB"+subCategoriesAdapter)
-        val linearLayoutManager: LinearLayoutManager = LinearLayoutManager(context)
-        linearLayoutManager.orientation=LinearLayoutManager.HORIZONTAL
-        holder.childRecyclerView.layoutManager = linearLayoutManager
-        holder.childRecyclerView.adapter!!.notifyDataSetChanged()
+        holder.imageViewCategoriesMain.setOnClickListener {
+            subCategoriesAdapter = SubCategoriesAdapter(mCategoriesList)
+            holder.childRecyclerView.adapter = subCategoriesAdapter
+            Log.d(TAG, "SUBBBBBBBBBB" + subCategoriesAdapter)
+            val linearLayoutManager: LinearLayoutManager = LinearLayoutManager(context)
+            linearLayoutManager.orientation = LinearLayoutManager.HORIZONTAL
+            holder.childRecyclerView.layoutManager = linearLayoutManager
+            holder.childRecyclerView.adapter!!.notifyDataSetChanged()
+        }
     }
 
     override fun getItemCount(): Int {
